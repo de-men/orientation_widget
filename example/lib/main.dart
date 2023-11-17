@@ -57,6 +57,7 @@ class MyHomePage extends StatelessWidget {
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => OrientationWidget.landscape(
+              then: autoOrientations,
               child: const LandscapePage(),
             ),
           ),
@@ -79,19 +80,17 @@ class LandscapePage extends StatelessWidget {
         // the App.build method, and use it to set our appbar title.
         title: const Text('Flutter Demo'),
       ),
-      body: OrientationWidget.landscape(
-        child: const Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Text('Landscape Page'),
-        ),
+      body: const Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Text('Landscape Page'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => OrientationWidget.portrait(
-              child: const PortraitPage(),
               then: landscapeOrientations,
+              child: const PortraitPage(),
             ),
           ),
         ),
@@ -122,9 +121,9 @@ class PortraitPage extends StatelessWidget {
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const OrientationWidget(
-              child: PortraitPage(),
               orientations: [DeviceOrientation.landscapeLeft],
               then: portraitOrientations,
+              child: LandscapePage(),
             ),
           ),
         ),

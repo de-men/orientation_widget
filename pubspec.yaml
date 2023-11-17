@@ -1,6 +1,6 @@
 name: orientation_widget
 description: A Flutter widget that forces the device rotates into the set of orientations the application interface can be displayed in.
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/de-men/orientation_widget
 
 environment:
